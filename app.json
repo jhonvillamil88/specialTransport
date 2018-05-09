@@ -1,4 +1,6 @@
 {
+  "name":"SpecialTransport",
+  "displayName":"Special Transport",
   "expo": {
     "sdkVersion": "26.0.0"
   }
