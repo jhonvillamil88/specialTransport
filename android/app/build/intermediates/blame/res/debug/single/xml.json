@@ -2,5 +2,9 @@
     {
         "merged": "/jhon/map/specialTransport/android/app/build/intermediates/res/merged/debug/xml/preferences.xml",
         "source": "/jhon/map/specialTransport/android/app/build/intermediates/exploded-aar/com.facebook.react/react-native/0.54.4/res/xml/preferences.xml"
+    },
+    {
+        "merged": "/home/john/projects/rn/specialTransport/android/app/build/intermediates/res/merged/debug/xml/preferences.xml",
+        "source": "/home/john/projects/rn/specialTransport/android/app/build/intermediates/exploded-aar/com.facebook.react/react-native/0.54.4/res/xml/preferences.xml"
     }
 ]

@@ -1,5 +1,9 @@
 [
     {
+        "merged": "/home/john/projects/rn/specialTransport/android/app/build/intermediates/res/merged/debug/mipmap-hdpi/ic_launcher.png",
+        "source": "/home/john/projects/rn/specialTransport/android/app/src/main/res/mipmap-hdpi/ic_launcher.png"
+    },
+    {
         "merged": "/jhon/map/specialTransport/android/app/build/intermediates/res/merged/debug/mipmap-hdpi/ic_launcher.png",
         "source": "/jhon/map/specialTransport/android/app/src/main/res/mipmap-hdpi/ic_launcher.png"
     }
