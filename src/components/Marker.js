@@ -6,9 +6,15 @@ export default class Marker extends Component {
 
   render() {
     //let pathIcon = ('../../resources/images/'+this.props.icon).toString();
-    let pathIcon = ('../../resources/images/movil.png');
+    let pathIcon = require('../../resources/images/person.png');
+    switch(this.props.icon){
+      case "movil":
+          pathIcon = require('../../resources/images/car.png');
+          break;
+    }
+
     return (
-        <MapView.Marker  image={require(pathIcon)} coordinate={this.props.location} />
+        <MapView.Marker  image={pathIcon} coordinate={this.props.location} />
     );
   }
 }

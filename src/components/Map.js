@@ -20,8 +20,26 @@ export default class Map extends Component {
         longitude: DefaultValues._DEFAULT_LON_,
         latitudeDelta: DefaultValues._DEFAULT_DELTA_LAT_,
         longitudeDelta: DefaultValues._DEFAULT_DELTA_LON_,
-      }
+      },
+      latitude:0,
+      longitude:0
     };
+  }
+  componentDidMount() {
+    console.log("componentDidMount");
+    try {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          
+        },
+        (error) => {
+          console.log(error);
+          console.log(error);
+        }
+      );
+    } catch(e) {
+      console.log("2 "+e);
+    }
   }
   render() {
 
@@ -31,7 +49,8 @@ export default class Map extends Component {
         style={styles.map}
         region={this.state.region}
       >
-      { defaultMarkers.map((row)=><Marker key={ctrl=ctrl+1} icon="movil.png" location={row}/>)}
+      <Marker location={{latitude:this.state.latitude, longitude:this.state.longitude}}/>
+      { defaultMarkers.map((row)=><Marker key={ctrl=ctrl+1} icon="movil" location={row}/>)}
       </MapView>
     );
   }
