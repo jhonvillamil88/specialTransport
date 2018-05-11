@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { StyleSheet } from 'react-native';
-import MapView from 'react-native-maps';
+import { StyleSheet, View, Text } from 'react-native';
+import MapView,{Callout} from 'react-native-maps';
 
 
 import Marker from '../components/Marker';
@@ -21,51 +21,37 @@ export default class Map extends Component {
         latitudeDelta: DefaultValues._DEFAULT_DELTA_LAT_,
         longitudeDelta: DefaultValues._DEFAULT_DELTA_LON_,
       },
-      latitude:0,
-      longitude:0
+      coords : {}
     };
   }
   componentDidMount() {
-    console.log("componentDidMount");
-    try {
-      navigator.geolocation.getCurrentPosition(
-        (position) => {
-          
-        },
-        (error) => {
-          console.log(error);
-          console.log(error);
-        }
-      );
-    } catch(e) {
-      console.log("2 "+e);
-    }
+    navigator.geolocation.getCurrentPosition((position) => {
+        this.setState({coords:position.coords});
+      }, (error) => {
+          alert(JSON.stringify(error))
+      }, {
+          enableHighAccuracy: true,
+          timeout: 20000
+      });
   }
   render() {
 
     return (
       <MapView
-        renderMarker={renderMarker}
         style={styles.map}
         region={this.state.region}
       >
-      <Marker location={{latitude:this.state.latitude, longitude:this.state.longitude}}/>
+       <Marker  location={this.state.coords} title = "Yo" description = "Yo"> 
+            <Callout tooltip={true} >
+              <View>
+                  <Text>This is a plain view</Text>
+              </View>
+              </Callout>
+       </Marker> 
       { defaultMarkers.map((row)=><Marker key={ctrl=ctrl+1} icon="movil" location={row}/>)}
       </MapView>
     );
   }
-}
-function renderMarker({ location }) {
-  return (
-    <MapView.Marker
-      image={image}
-      coordinate={location}
-    >
-      <MapView.Callout>
-        <Text>BiG BiG Callout</Text>
-      </MapView.Callout>
-    </MapView.Marker>
-  );
 }
 const styles = StyleSheet.create({
   map: {
