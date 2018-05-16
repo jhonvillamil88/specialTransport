@@ -4,9 +4,6 @@ let values = {
   _DEFAULT_DELTA_LAT_: 0.0922,
   _DEFAULT_DELTA_LON_: 0.0421,
   _DEFAULT_MARKERS_  : [{
-      longitude: -76.509620,
-      latitude: 3.395037
-    },{
         longitude: -76.541334,
         latitude: 3.407112
     },{

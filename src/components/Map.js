@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { StyleSheet, View, Text } from 'react-native';
-import MapView,{Callout} from 'react-native-maps';
+import MapView from 'react-native-maps';
 
 
 import Marker from '../components/Marker';
@@ -21,7 +21,9 @@ export default class Map extends Component {
         latitudeDelta: DefaultValues._DEFAULT_DELTA_LAT_,
         longitudeDelta: DefaultValues._DEFAULT_DELTA_LON_,
       },
-      coords : {}
+      coords : {},
+      name:'Yo',
+      description:'Dame un momento estoy determinando donde estas!'
     };
   }
   componentDidMount() {
@@ -41,12 +43,8 @@ export default class Map extends Component {
         style={styles.map}
         region={this.state.region}
       >
-       <Marker  location={this.state.coords} title = "Yo" description = "Yo"> 
-            <Callout tooltip={true} >
-              <View>
-                  <Text>This is a plain view</Text>
-              </View>
-              </Callout>
+       <Marker  location={this.state.coords} title = {this.state.name} description = {this.state.description}> 
+            
        </Marker> 
       { defaultMarkers.map((row)=><Marker key={ctrl=ctrl+1} icon="movil" location={row}/>)}
       </MapView>

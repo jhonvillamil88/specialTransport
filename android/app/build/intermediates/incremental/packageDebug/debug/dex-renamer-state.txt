@@ -1,4 +1,4 @@
-#Wed May 09 22:41:53 COT 2018
+#Tue May 15 21:53:14 COT 2018
 base.0=/home/john/projects/rn/specialTransport/android/app/build/intermediates/transforms/dexMerger/debug/0
 path.0=classes.dex
 renamed.0=classes.dex

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { StyleSheet, View } from 'react-native';
-import MapView from 'react-native-maps';
+import { StyleSheet, View, Text  } from 'react-native';
+import MapView,{Callout} from 'react-native-maps';
 
 export default class Marker extends Component {
 
@@ -14,7 +14,14 @@ export default class Marker extends Component {
     }
 
     return (
-        <MapView.Marker  image={pathIcon} coordinate={this.props.location} />
+        <MapView.Marker title={this.props.title}  description={this.props.description} image={pathIcon} coordinate={this.props.location} >
+          <Callout tooltip={true} >
+              <View style={styles.viewCallout}>
+                <Text style={styles.textTitle}>{this.props.title}</Text>
+                <Text style={styles.textDescription}>{this.props.description}</Text>
+              </View>
+          </Callout>
+        </MapView.Marker>
     );
   }
 }
@@ -22,5 +29,22 @@ export default class Marker extends Component {
 const styles = StyleSheet.create({
   map: {
     ...StyleSheet.absoluteFillObject,
+  },
+  viewCallout:{
+    backgroundColor:'black',
+    width:120,
+    height:150,
+    borderRadius:10
+  },
+  textTitle:{
+    fontWeight:'bold',
+    textAlign:'center',
+    fontSize:16,
+    color:'red'
+
+  },
+  textDescription:{
+    textAlign:'justify',
+    color:'red'
   }
 });
