@@ -14,7 +14,7 @@ export default class Marker extends Component {
     }
 
     return (
-        <MapView.Marker title={this.props.title}  description={this.props.description} image={pathIcon} coordinate={this.props.location} >
+        <MapView.Marker title={this.props.title}  description={this.props.description} image={pathIcon} coordinate={this.props.location} onPress={(event) => {console.log(event)}} >
           <Callout tooltip={true} >
               <View style={styles.viewCallout}>
                 <Text style={styles.textTitle}>{this.props.title}</Text>
@@ -23,6 +23,10 @@ export default class Marker extends Component {
           </Callout>
         </MapView.Marker>
     );
+  }
+
+  findAddres(){
+
   }
 }
 
@@ -45,6 +49,7 @@ const styles = StyleSheet.create({
   },
   textDescription:{
     textAlign:'justify',
-    color:'red'
+    color:'red',
+    paddingHorizontal:10
   }
 });

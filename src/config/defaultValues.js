@@ -5,13 +5,16 @@ let values = {
   _DEFAULT_DELTA_LON_: 0.0421,
   _DEFAULT_MARKERS_  : [{
         longitude: -76.541334,
-        latitude: 3.407112
+        latitude: 3.407112,
+        movil:'Movil 1'
     },{
         longitude: -76.535573,
-        latitude: 3.426470
+        latitude: 3.426470,
+        movil:'Movil 2'
     },{
         longitude: -76.515111,
-        latitude: 3.473310
+        latitude: 3.473310,
+        movil:'Movil 3'
     }
   ]
 }

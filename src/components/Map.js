@@ -31,12 +31,12 @@ export default class Map extends Component {
     navigator.geolocation.getCurrentPosition((position) => {
         this.setState({coords:position.coords});
         // Position Geocoding
-        var NY = {
+        var PT = {
           lat: position.coords.latitude,
           lng: position.coords.longitude
         };
 
-        Geocoder.geocodePosition(NY).then(res => {
+        Geocoder.geocodePosition(PT).then(res => {
             // res is an Array of geocoding object (see below)
             let addres = res[0].formattedAddress;
             this.setState({description:'Actualmente estas en '+addres})
@@ -47,10 +47,7 @@ export default class Map extends Component {
       }, {
           enableHighAccuracy: true,
           timeout: 20000
-    });
-
-
-      
+    });  
   }
   render() {
 
@@ -62,7 +59,7 @@ export default class Map extends Component {
        <Marker  location={this.state.coords} title = {this.state.name} description = {this.state.description}> 
             
        </Marker> 
-      { defaultMarkers.map((row)=><Marker key={ctrl=ctrl+1} icon="movil" location={row}/>)}
+      { defaultMarkers.map((row)=><Marker title = {row.movil} key={ctrl=ctrl+1} icon="movil" location={row}/>)}
       </MapView>
     );
   }
