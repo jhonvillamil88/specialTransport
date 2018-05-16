@@ -5,7 +5,8 @@ INJECTED from /home/john/projects/rn/specialTransport/android/app/src/main/Andro
 INJECTED from /home/john/projects/rn/specialTransport/android/app/src/main/AndroidManifest.xml:1:1-30:12
 INJECTED from /home/john/projects/rn/specialTransport/android/app/src/main/AndroidManifest.xml:1:1-30:12
 MERGED from [:react-native-maps] /home/john/projects/rn/specialTransport/node_modules/react-native-maps/lib/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:2:1-12:12
-MERGED from [com.facebook.react:react-native:0.54.4] /home/john/.gradle/caches/transforms-1/files-1.1/react-native-0.54.4.aar/505b677e9bf24b5fd7a7dd09ed3f178b/AndroidManifest.xml:2:1-15:12
+MERGED from [:react-native-geocoder] /home/john/projects/rn/specialTransport/node_modules/react-native-geocoder/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:2:1-11:12
+MERGED from [com.facebook.react:react-native:0.55.4] /home/john/.gradle/caches/transforms-1/files-1.1/react-native-0.55.4.aar/364732af290d0dfb5b26915a2c6ed814/AndroidManifest.xml:2:1-15:12
 MERGED from [com.android.support:appcompat-v7:23.0.1] /home/john/.gradle/caches/transforms-1/files-1.1/appcompat-v7-23.0.1.aar/dc18efd7324811efb9f00b003a103676/AndroidManifest.xml:17:1-24:12
 MERGED from [com.google.android.gms:play-services-maps:10.2.4] /home/john/.gradle/caches/transforms-1/files-1.1/play-services-maps-10.2.4.aar/50f32a40f688926c2a8d743bc99801b5/AndroidManifest.xml:16:1-25:12
 MERGED from [com.google.android.gms:play-services-base:10.2.4] /home/john/.gradle/caches/transforms-1/files-1.1/play-services-base-10.2.4.aar/8394cca04366361c8eb18a5480311586/AndroidManifest.xml:16:1-21:12
@@ -48,8 +49,8 @@ MERGED from [com.google.android.gms:play-services-maps:10.2.4] /home/john/.gradl
 		ADDED from /home/john/projects/rn/specialTransport/android/app/src/main/AndroidManifest.xml:4:22-64
 uses-permission#android.permission.SYSTEM_ALERT_WINDOW
 ADDED from /home/john/projects/rn/specialTransport/android/app/src/main/AndroidManifest.xml:5:5-77
-MERGED from [com.facebook.react:react-native:0.54.4] /home/john/.gradle/caches/transforms-1/files-1.1/react-native-0.54.4.aar/505b677e9bf24b5fd7a7dd09ed3f178b/AndroidManifest.xml:11:5-78
-MERGED from [com.facebook.react:react-native:0.54.4] /home/john/.gradle/caches/transforms-1/files-1.1/react-native-0.54.4.aar/505b677e9bf24b5fd7a7dd09ed3f178b/AndroidManifest.xml:11:5-78
+MERGED from [com.facebook.react:react-native:0.55.4] /home/john/.gradle/caches/transforms-1/files-1.1/react-native-0.55.4.aar/364732af290d0dfb5b26915a2c6ed814/AndroidManifest.xml:11:5-78
+MERGED from [com.facebook.react:react-native:0.55.4] /home/john/.gradle/caches/transforms-1/files-1.1/react-native-0.55.4.aar/364732af290d0dfb5b26915a2c6ed814/AndroidManifest.xml:11:5-78
 	android:name
 		ADDED from /home/john/projects/rn/specialTransport/android/app/src/main/AndroidManifest.xml:5:22-75
 uses-permission#android.permission.ACCESS_FINE_LOCATION
@@ -58,8 +59,8 @@ ADDED from /home/john/projects/rn/specialTransport/android/app/src/main/AndroidM
 		ADDED from /home/john/projects/rn/specialTransport/android/app/src/main/AndroidManifest.xml:6:22-76
 application
 ADDED from /home/john/projects/rn/specialTransport/android/app/src/main/AndroidManifest.xml:8:5-28:19
-MERGED from [com.facebook.react:react-native:0.54.4] /home/john/.gradle/caches/transforms-1/files-1.1/react-native-0.54.4.aar/505b677e9bf24b5fd7a7dd09ed3f178b/AndroidManifest.xml:13:5-20
-MERGED from [com.facebook.react:react-native:0.54.4] /home/john/.gradle/caches/transforms-1/files-1.1/react-native-0.54.4.aar/505b677e9bf24b5fd7a7dd09ed3f178b/AndroidManifest.xml:13:5-20
+MERGED from [com.facebook.react:react-native:0.55.4] /home/john/.gradle/caches/transforms-1/files-1.1/react-native-0.55.4.aar/364732af290d0dfb5b26915a2c6ed814/AndroidManifest.xml:13:5-20
+MERGED from [com.facebook.react:react-native:0.55.4] /home/john/.gradle/caches/transforms-1/files-1.1/react-native-0.55.4.aar/364732af290d0dfb5b26915a2c6ed814/AndroidManifest.xml:13:5-20
 MERGED from [com.android.support:appcompat-v7:23.0.1] /home/john/.gradle/caches/transforms-1/files-1.1/appcompat-v7-23.0.1.aar/dc18efd7324811efb9f00b003a103676/AndroidManifest.xml:22:5-20
 MERGED from [com.android.support:appcompat-v7:23.0.1] /home/john/.gradle/caches/transforms-1/files-1.1/appcompat-v7-23.0.1.aar/dc18efd7324811efb9f00b003a103676/AndroidManifest.xml:22:5-20
 MERGED from [com.google.android.gms:play-services-maps:10.2.4] /home/john/.gradle/caches/transforms-1/files-1.1/play-services-maps-10.2.4.aar/50f32a40f688926c2a8d743bc99801b5/AndroidManifest.xml:24:5-19
@@ -122,8 +123,10 @@ INJECTED from /home/john/projects/rn/specialTransport/android/app/src/main/Andro
 INJECTED from /home/john/projects/rn/specialTransport/android/app/src/main/AndroidManifest.xml
 MERGED from [:react-native-maps] /home/john/projects/rn/specialTransport/node_modules/react-native-maps/lib/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:5:5-7:41
 MERGED from [:react-native-maps] /home/john/projects/rn/specialTransport/node_modules/react-native-maps/lib/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:5:5-7:41
-MERGED from [com.facebook.react:react-native:0.54.4] /home/john/.gradle/caches/transforms-1/files-1.1/react-native-0.54.4.aar/505b677e9bf24b5fd7a7dd09ed3f178b/AndroidManifest.xml:7:5-9:41
-MERGED from [com.facebook.react:react-native:0.54.4] /home/john/.gradle/caches/transforms-1/files-1.1/react-native-0.54.4.aar/505b677e9bf24b5fd7a7dd09ed3f178b/AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-geocoder] /home/john/projects/rn/specialTransport/node_modules/react-native-geocoder/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-geocoder] /home/john/projects/rn/specialTransport/node_modules/react-native-geocoder/android/build/intermediates/manifests/full/debug/AndroidManifest.xml:7:5-9:41
+MERGED from [com.facebook.react:react-native:0.55.4] /home/john/.gradle/caches/transforms-1/files-1.1/react-native-0.55.4.aar/364732af290d0dfb5b26915a2c6ed814/AndroidManifest.xml:7:5-9:41
+MERGED from [com.facebook.react:react-native:0.55.4] /home/john/.gradle/caches/transforms-1/files-1.1/react-native-0.55.4.aar/364732af290d0dfb5b26915a2c6ed814/AndroidManifest.xml:7:5-9:41
 MERGED from [com.android.support:appcompat-v7:23.0.1] /home/john/.gradle/caches/transforms-1/files-1.1/appcompat-v7-23.0.1.aar/dc18efd7324811efb9f00b003a103676/AndroidManifest.xml:20:5-43
 MERGED from [com.android.support:appcompat-v7:23.0.1] /home/john/.gradle/caches/transforms-1/files-1.1/appcompat-v7-23.0.1.aar/dc18efd7324811efb9f00b003a103676/AndroidManifest.xml:20:5-43
 MERGED from [com.google.android.gms:play-services-maps:10.2.4] /home/john/.gradle/caches/transforms-1/files-1.1/play-services-maps-10.2.4.aar/50f32a40f688926c2a8d743bc99801b5/AndroidManifest.xml:23:5-43

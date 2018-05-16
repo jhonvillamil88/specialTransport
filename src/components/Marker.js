@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
   },
   viewCallout:{
     backgroundColor:'black',
-    width:120,
+    width:130,
     height:150,
     borderRadius:10
   },

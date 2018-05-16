@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { StyleSheet, View, Text } from 'react-native';
 import MapView from 'react-native-maps';
+import Geocoder from 'react-native-geocoder';
 
 
 import Marker from '../components/Marker';
@@ -29,12 +30,27 @@ export default class Map extends Component {
   componentDidMount() {
     navigator.geolocation.getCurrentPosition((position) => {
         this.setState({coords:position.coords});
+        // Position Geocoding
+        var NY = {
+          lat: position.coords.latitude,
+          lng: position.coords.longitude
+        };
+
+        Geocoder.geocodePosition(NY).then(res => {
+            // res is an Array of geocoding object (see below)
+            let addres = res[0].formattedAddress;
+            this.setState({description:'Actualmente estas en '+addres})
+        })
+        .catch(err => console.log(err))
       }, (error) => {
           alert(JSON.stringify(error))
       }, {
           enableHighAccuracy: true,
           timeout: 20000
-      });
+    });
+
+
+      
   }
   render() {
 
