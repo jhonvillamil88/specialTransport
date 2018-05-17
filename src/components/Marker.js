@@ -3,14 +3,17 @@ import { StyleSheet, View, Text  } from 'react-native';
 import MapView,{Callout} from 'react-native-maps';
 import Geocoder from 'react-native-geocoder';
 
-
+var me =null;
 export default class Marker extends Component {
 
   constructor(props){
     super(props);
     this.state = {
-      description: 'Estoy buscando...'
+      description: 'Estoy buscando...',
+      flagh:false
     }
+    
+
   }
 
   render() {
@@ -21,7 +24,9 @@ export default class Marker extends Component {
           pathIcon = require('../../resources/images/car.png');
           break;
     }
-    alert("Paso");
+
+    me = this;
+    //alert("Paso");
     /*
        <!-- <Callout tooltip={true} >
                 <View style={styles.viewCallout}>
@@ -30,13 +35,20 @@ export default class Marker extends Component {
                 </View>
             </Callout> -->
     */ 
-    return (
+   //this.setState({description:'Hola, me encuento en: '});
+   console.log(this.state); 
+   return (
         <MapView.Marker 
           title={this.props.title}  
           description={this.state.description} 
           image={pathIcon} coordinate={this.props.location} 
-          onPress={(event) => {this.setState({description:'Hola, me encuento en: '});this.findAddres(this.props.location)}} >
-          
+          onPress={(event) => {this.findAddres.call(this,this.props.location)}} >
+          <Callout tooltip={this.state.flagh} >
+                <View style={styles.viewCallout}>
+                  <Text style={styles.textTitle}>{this.props.title}</Text>
+                  <Text tooltip={this.state.flagh}  style={styles.textDescription}>{this.state.description}</Text>
+                </View>
+            </Callout> 
         </MapView.Marker>
     );
   }
@@ -47,13 +59,15 @@ export default class Marker extends Component {
       lng: coor.longitude
       
     }
-    this.setState({description:'Hola, me encuento en: '});
+
+
+    //this.setState({description:'Hola, me encuento en: '});
     Geocoder.geocodePosition(PT).then(res => {
         // res is an Array of geocoding object (see below)
         let addres = res[0].formattedAddress;
-        console.log(addres);
-        alert(addres);
-        this.setState({description:'Hola, me encuento en: '+addres});
+        //console.log(me);
+        //alert(addres);
+        this.setState({flagh:true,description:'Hola, me encuento en: '+addres});
     })
     .catch(err => console.log(err))
   }

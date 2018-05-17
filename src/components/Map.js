@@ -22,7 +22,10 @@ export default class Map extends Component {
         latitudeDelta: DefaultValues._DEFAULT_DELTA_LAT_,
         longitudeDelta: DefaultValues._DEFAULT_DELTA_LON_,
       },
-      coords : {},
+      coords : {
+        latitude:0,
+        longitude:0
+      },
       name:'Yo',
       description:'Dame un momento estoy determinando donde estas!'
     };
@@ -50,13 +53,13 @@ export default class Map extends Component {
     });  
   }
   render() {
-
+ 
     return (
       <MapView
         style={styles.map}
         region={this.state.region}
       >
-       <Marker  location={this.state.coords} title = {this.state.name} description = {this.state.description}> 
+      <Marker  location={this.state.coords} title = {this.state.name} description = {this.state.description}> 
             
        </Marker> 
       { defaultMarkers.map((row)=><Marker title = {row.movil} key={ctrl=ctrl+1} icon="movil" location={row}/>)}
