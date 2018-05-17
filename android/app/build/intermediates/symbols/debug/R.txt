@@ -518,6 +518,8 @@ int drawable common_google_signin_btn_text_light_normal_background 0x7f060050
 int drawable googleg_disabled_color_18 0x7f060051
 int drawable googleg_standard_color_18 0x7f060052
 int drawable notification_template_icon_bg 0x7f060053
+int drawable resources_images_car 0x7f060054
+int drawable resources_images_person 0x7f060055
 int id action0 0x7f070000
 int id action_bar 0x7f070001
 int id action_bar_activity_content 0x7f070002

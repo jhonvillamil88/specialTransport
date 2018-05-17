@@ -2186,6 +2186,8 @@ public final class R {
     public static final int googleg_disabled_color_18=0x7f060051;
     public static final int googleg_standard_color_18=0x7f060052;
     public static final int notification_template_icon_bg=0x7f060053;
+    public static final int resources_images_car=0x7f060054;
+    public static final int resources_images_person=0x7f060055;
   }
   public static final class id {
     public static final int action0=0x7f070000;
