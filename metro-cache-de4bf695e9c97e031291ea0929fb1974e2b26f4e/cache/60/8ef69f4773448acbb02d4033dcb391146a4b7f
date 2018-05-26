@@ -1,0 +1,12 @@
+__d(function (global, _require, module, exports, _dependencyMap) {
+  module.exports = _require(_dependencyMap[0]).registerAsset({
+    "__packager_asset": true,
+    "httpServerLocation": "/assets/resources/images",
+    "width": 256,
+    "height": 256,
+    "scales": [1],
+    "hash": "a2ffc0f068dd058c185bb4d0a4bf85a4",
+    "name": "person",
+    "type": "png"
+  });
+});

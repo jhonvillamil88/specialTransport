@@ -1,0 +1,12 @@
+__d(function (global, _require, module, exports, _dependencyMap) {
+  module.exports = _require(_dependencyMap[0]).registerAsset({
+    "__packager_asset": true,
+    "httpServerLocation": "/assets/resources/images",
+    "width": 128,
+    "height": 128,
+    "scales": [1],
+    "hash": "39192b539df567e94279b3873be7965c",
+    "name": "car",
+    "type": "png"
+  });
+});

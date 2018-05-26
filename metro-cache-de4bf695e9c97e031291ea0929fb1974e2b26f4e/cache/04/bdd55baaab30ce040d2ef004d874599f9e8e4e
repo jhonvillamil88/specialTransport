@@ -1,0 +1,105 @@
+__d(function (global, _require, module, exports, _dependencyMap) {
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+  var googleUrl = 'https://maps.google.com/maps/api/geocode/json';
+
+  function format(raw) {
+    var address = {
+      position: {},
+      formattedAddress: raw.formatted_address || '',
+      feature: null,
+      streetNumber: null,
+      streetName: null,
+      postalCode: null,
+      locality: null,
+      country: null,
+      countryCode: null,
+      adminArea: null,
+      subAdminArea: null,
+      subLocality: null
+    };
+
+    if (raw.geometry && raw.geometry.location) {
+      address.position = {
+        lat: raw.geometry.location.lat,
+        lng: raw.geometry.location.lng
+      };
+    }
+
+    raw.address_components.forEach(function (component) {
+      if (component.types.indexOf('route') !== -1) {
+        address.streetName = component.long_name;
+      } else if (component.types.indexOf('street_number') !== -1) {
+        address.streetNumber = component.long_name;
+      } else if (component.types.indexOf('country') !== -1) {
+        address.country = component.long_name;
+        address.countryCode = component.short_name;
+      } else if (component.types.indexOf('locality') !== -1) {
+        address.locality = component.long_name;
+      } else if (component.types.indexOf('postal_code') !== -1) {
+        address.postalCode = component.long_name;
+      } else if (component.types.indexOf('administrative_area_level_1') !== -1) {
+        address.adminArea = component.long_name;
+      } else if (component.types.indexOf('administrative_area_level_2') !== -1) {
+        address.subAdminArea = component.long_name;
+      } else if (component.types.indexOf('sublocality') !== -1 || component.types.indexOf('sublocality_level_1') !== -1) {
+        address.subLocality = component.long_name;
+      } else if (component.types.indexOf('point_of_interest') !== -1 || component.types.indexOf('colloquial_area') !== -1) {
+        address.feature = component.long_name;
+      }
+    });
+    return address;
+  }
+
+  exports.default = {
+    geocodePosition: function geocodePosition(apiKey, position) {
+      if (!apiKey || !position || !position.lat || !position.lng) {
+        return Promise.reject(new Error("invalid apiKey / position"));
+      }
+
+      return this.geocodeRequest(googleUrl + "?key=" + apiKey + "&latlng=" + position.lat + "," + position.lng);
+    },
+    geocodeAddress: function geocodeAddress(apiKey, address) {
+      if (!apiKey || !address) {
+        return Promise.reject(new Error("invalid apiKey / address"));
+      }
+
+      return this.geocodeRequest(googleUrl + "?key=" + apiKey + "&address=" + encodeURI(address));
+    },
+    geocodeRequest: function geocodeRequest(url) {
+      var res, json;
+      return regeneratorRuntime.async(function geocodeRequest$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              _context.next = 2;
+              return regeneratorRuntime.awrap(fetch(url));
+
+            case 2:
+              res = _context.sent;
+              _context.next = 5;
+              return regeneratorRuntime.awrap(res.json());
+
+            case 5:
+              json = _context.sent;
+
+              if (!(!json.results || json.status !== 'OK')) {
+                _context.next = 8;
+                break;
+              }
+
+              return _context.abrupt("return", Promise.reject(new Error("geocoding error " + json.status + ", " + json.error_message)));
+
+            case 8:
+              return _context.abrupt("return", json.results.map(format));
+
+            case 9:
+            case "end":
+              return _context.stop();
+          }
+        }
+      }, null, this);
+    }
+  };
+});

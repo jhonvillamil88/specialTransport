@@ -1,0 +1,27 @@
+--- adb starting (pid 5358) ---
+adb I 05-17 19:53:56  5358  5358 main.cpp:57] Android Debug Bridge version 1.0.39
+adb I 05-17 19:53:56  5358  5358 main.cpp:57] Version 0.0.1-4500957
+adb I 05-17 19:53:56  5358  5358 main.cpp:57] Installed as /home/desarrollador1/Android/Sdk/platform-tools/adb
+adb I 05-17 19:53:56  5358  5358 main.cpp:57] 
+adb I 05-17 19:53:56  5358  5358 adb_auth_host.cpp:416] adb_auth_init...
+adb I 05-17 19:53:56  5358  5358 adb_auth_host.cpp:174] read_key_file '/home/desarrollador1/.android/adbkey'...
+adb I 05-17 19:53:56  5358  5358 adb_auth_host.cpp:391] adb_auth_inotify_init...
+adb I 05-17 19:53:56  5358  5358 adb_auth_host.cpp:467] Calling send_auth_response
+adb server killed by remote request
+--- adb starting (pid 5386) ---
+adb I  5386  5386 main.cpp:83] Android Debug Bridge version 1.0.36
+adb I  5386  5386 main.cpp:83] Revision 1:7.0.0+r33-2
+adb I  5386  5386 main.cpp:83] 
+adb server killed by remote request
+--- adb starting (pid 5393) ---
+adb I 05-17 19:54:30  5393  5393 main.cpp:57] Android Debug Bridge version 1.0.39
+adb I 05-17 19:54:30  5393  5393 main.cpp:57] Version 0.0.1-4500957
+adb I 05-17 19:54:30  5393  5393 main.cpp:57] Installed as /home/desarrollador1/Android/Sdk/platform-tools/adb
+adb I 05-17 19:54:30  5393  5393 main.cpp:57] 
+adb I 05-17 19:54:30  5393  5393 adb_auth_host.cpp:416] adb_auth_init...
+adb I 05-17 19:54:30  5393  5393 adb_auth_host.cpp:174] read_key_file '/home/desarrollador1/.android/adbkey'...
+adb I 05-17 19:54:30  5393  5393 adb_auth_host.cpp:391] adb_auth_inotify_init...
+adb I 05-17 19:54:30  5393  5393 adb_auth_host.cpp:467] Calling send_auth_response
+adb E 05-17 19:56:29  5393  5442 transport_usb.cpp:160] remote usb: 1 - write terminated: Connection timed out
+adb I 05-17 19:57:24  5393  5393 adb_auth_host.cpp:467] Calling send_auth_response
+adb server killed by remote request

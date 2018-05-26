@@ -1,0 +1,121 @@
+__d(function (global, _require, module, exports, _dependencyMap) {
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+  exports.default = undefined;
+
+  var _react = _require(_dependencyMap[0]);
+
+  var _react2 = babelHelpers.interopRequireDefault(_react);
+
+  var _reactNative = _require(_dependencyMap[1]);
+
+  var _reactNativeMaps = _require(_dependencyMap[2]);
+
+  var _reactNativeMaps2 = babelHelpers.interopRequireDefault(_reactNativeMaps);
+
+  var _reactNativeGeocoder = _require(_dependencyMap[3]);
+
+  var _reactNativeGeocoder2 = babelHelpers.interopRequireDefault(_reactNativeGeocoder);
+
+  var _Marker = _require(_dependencyMap[4]);
+
+  var _Marker2 = babelHelpers.interopRequireDefault(_Marker);
+
+  var _defaultValues = _require(_dependencyMap[5]);
+
+  var _defaultValues2 = babelHelpers.interopRequireDefault(_defaultValues);
+
+  var defaultMarkers = _defaultValues2.default._DEFAULT_MARKERS_;
+  var ctrl = 1;
+
+  var Map = function (_Component) {
+    babelHelpers.inherits(Map, _Component);
+
+    function Map(props) {
+      babelHelpers.classCallCheck(this, Map);
+
+      var _this = babelHelpers.possibleConstructorReturn(this, (Map.__proto__ || Object.getPrototypeOf(Map)).call(this, props));
+
+      _this.state = {
+        region: {
+          latitude: _defaultValues2.default._DEFAULT_LAT_,
+          longitude: _defaultValues2.default._DEFAULT_LON_,
+          latitudeDelta: _defaultValues2.default._DEFAULT_DELTA_LAT_,
+          longitudeDelta: _defaultValues2.default._DEFAULT_DELTA_LON_
+        },
+        coords: {
+          latitude: 0,
+          longitude: 0
+        },
+        name: 'Yo',
+        description: 'Dame un momento estoy determinando donde estas!'
+      };
+      return _this;
+    }
+
+    babelHelpers.createClass(Map, [{
+      key: "componentDidMount",
+      value: function componentDidMount() {
+        var _this2 = this;
+
+        navigator.geolocation.getCurrentPosition(function (position) {
+          _this2.setState({
+            coords: position.coords
+          });
+
+          var PT = {
+            lat: position.coords.latitude,
+            lng: position.coords.longitude
+          };
+
+          _reactNativeGeocoder2.default.geocodePosition(PT).then(function (res) {
+            var addres = res[0].formattedAddress;
+
+            _this2.setState({
+              description: 'Actualmente estas en ' + addres
+            });
+          }).catch(function (err) {
+            return console.log(err);
+          });
+        }, function (error) {
+          alert(JSON.stringify(error));
+        }, {
+          enableHighAccuracy: true,
+          timeout: 20000
+        });
+      }
+    }, {
+      key: "render",
+      value: function render() {
+        return _react2.default.createElement(
+          _reactNativeMaps2.default,
+          {
+            style: styles.map,
+            region: this.state.region
+          },
+          _react2.default.createElement(_Marker2.default, {
+            location: this.state.coords,
+            title: this.state.name,
+            description: this.state.description
+          }),
+          defaultMarkers.map(function (row) {
+            return _react2.default.createElement(_Marker2.default, {
+              title: row.movil,
+              key: ctrl = ctrl + 1,
+              icon: "movil",
+              location: row
+            });
+          })
+        );
+      }
+    }]);
+    return Map;
+  }(_react.Component);
+
+  exports.default = Map;
+
+  var styles = _reactNative.StyleSheet.create({
+    map: babelHelpers.extends({}, _reactNative.StyleSheet.absoluteFillObject)
+  });
+});

@@ -1,0 +1,98 @@
+__d(function (global, _require, module, exports, _dependencyMap) {
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+  exports.PROVIDER_DEFAULT = exports.PROVIDER_GOOGLE = exports.MAP_TYPES = exports.ProviderPropType = exports.Animated = exports.AnimatedRegion = exports.Callout = exports.Overlay = exports.LocalTile = exports.UrlTile = exports.Circle = exports.Polygon = exports.Polyline = exports.Marker = undefined;
+
+  var _MapMarker = _require(_dependencyMap[0]);
+
+  Object.defineProperty(exports, "Marker", {
+    enumerable: true,
+    get: function get() {
+      return babelHelpers.interopRequireDefault(_MapMarker).default;
+    }
+  });
+
+  var _MapPolyline = _require(_dependencyMap[1]);
+
+  Object.defineProperty(exports, "Polyline", {
+    enumerable: true,
+    get: function get() {
+      return babelHelpers.interopRequireDefault(_MapPolyline).default;
+    }
+  });
+
+  var _MapPolygon = _require(_dependencyMap[2]);
+
+  Object.defineProperty(exports, "Polygon", {
+    enumerable: true,
+    get: function get() {
+      return babelHelpers.interopRequireDefault(_MapPolygon).default;
+    }
+  });
+
+  var _MapCircle = _require(_dependencyMap[3]);
+
+  Object.defineProperty(exports, "Circle", {
+    enumerable: true,
+    get: function get() {
+      return babelHelpers.interopRequireDefault(_MapCircle).default;
+    }
+  });
+
+  var _MapUrlTile = _require(_dependencyMap[4]);
+
+  Object.defineProperty(exports, "UrlTile", {
+    enumerable: true,
+    get: function get() {
+      return babelHelpers.interopRequireDefault(_MapUrlTile).default;
+    }
+  });
+
+  var _MapLocalTile = _require(_dependencyMap[5]);
+
+  Object.defineProperty(exports, "LocalTile", {
+    enumerable: true,
+    get: function get() {
+      return babelHelpers.interopRequireDefault(_MapLocalTile).default;
+    }
+  });
+
+  var _MapOverlay = _require(_dependencyMap[6]);
+
+  Object.defineProperty(exports, "Overlay", {
+    enumerable: true,
+    get: function get() {
+      return babelHelpers.interopRequireDefault(_MapOverlay).default;
+    }
+  });
+
+  var _MapCallout = _require(_dependencyMap[7]);
+
+  Object.defineProperty(exports, "Callout", {
+    enumerable: true,
+    get: function get() {
+      return babelHelpers.interopRequireDefault(_MapCallout).default;
+    }
+  });
+
+  var _AnimatedRegion = _require(_dependencyMap[8]);
+
+  Object.defineProperty(exports, "AnimatedRegion", {
+    enumerable: true,
+    get: function get() {
+      return babelHelpers.interopRequireDefault(_AnimatedRegion).default;
+    }
+  });
+
+  var _MapView = _require(_dependencyMap[9]);
+
+  var _MapView2 = babelHelpers.interopRequireDefault(_MapView);
+
+  exports.Animated = _MapView.Animated;
+  exports.ProviderPropType = _MapView.ProviderPropType;
+  exports.MAP_TYPES = _MapView.MAP_TYPES;
+  var PROVIDER_GOOGLE = exports.PROVIDER_GOOGLE = _MapView2.default.PROVIDER_GOOGLE;
+  var PROVIDER_DEFAULT = exports.PROVIDER_DEFAULT = _MapView2.default.PROVIDER_DEFAULT;
+  exports.default = _MapView2.default;
+});

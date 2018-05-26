@@ -29,6 +29,10 @@ export default class Map extends Component {
       name:'Yo',
       description:'Dame un momento estoy determinando donde estas!'
     };
+    //this.findAddres = this.findAddres.bind(this);
+
+    setTimeout(()=>this.findDataMovils(),3000);
+    //this.findDataMovils();
   }
   componentDidMount() {
     navigator.geolocation.getCurrentPosition((position) => {
@@ -66,6 +70,37 @@ export default class Map extends Component {
       </MapView>
     );
   }
+
+  findAddres =  (coor) =>{
+    let PT = {
+      lat: coor.latitude,
+      lng: coor.longitude
+      
+    }
+    //this.setState({description:'Hola, me encuento en: '});
+    Geocoder.geocodePosition(PT).then(res => {
+        // res is an Array of geocoding object (see below)
+        let addres = res[0].formattedAddress;
+        //console.log(me);
+        //alert(addres);
+        this.setState({flagh:true,description:'Hola, me encuento en: '+addres});
+    })
+    .catch(err => console.log(err))
+  }
+
+  findDataMovils = ()=>{
+    console.log("Hola");
+    /*fetch('https://apiservice.servertrack.co:3000')  
+    .then(function(response) {
+      console.log(response);
+      return response.json();
+    })*/
+    //import data from './src/components/config/data.json';
+    var data = require('./src/components/config/data.json');
+    console.log(data);
+
+  }
+
 }
 const styles = StyleSheet.create({
   map: {

@@ -1,0 +1,11 @@
+__d(function (global, _require, module, exports, _dependencyMap) {
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+
+  var _geocoder = _require(_dependencyMap[0]);
+
+  var _geocoder2 = babelHelpers.interopRequireDefault(_geocoder);
+
+  exports.default = _geocoder2.default;
+});

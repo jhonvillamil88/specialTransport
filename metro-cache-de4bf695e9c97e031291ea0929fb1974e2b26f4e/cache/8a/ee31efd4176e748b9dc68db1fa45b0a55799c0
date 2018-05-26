@@ -1,0 +1,11 @@
+__d(function (global, _require, module, exports, _dependencyMap) {
+  var _reactNative = _require(_dependencyMap[0]);
+
+  var _index = _require(_dependencyMap[1]);
+
+  var _index2 = babelHelpers.interopRequireDefault(_index);
+
+  _reactNative.AppRegistry.registerComponent('SpecialTransport', function () {
+    return _index2.default;
+  });
+});

@@ -1,0 +1,137 @@
+__d(function (global, _require, module, exports, _dependencyMap) {
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+  exports.default = undefined;
+
+  var _react = _require(_dependencyMap[0]);
+
+  var _react2 = babelHelpers.interopRequireDefault(_react);
+
+  var _reactNative = _require(_dependencyMap[1]);
+
+  var _reactNativeMaps = _require(_dependencyMap[2]);
+
+  var _reactNativeMaps2 = babelHelpers.interopRequireDefault(_reactNativeMaps);
+
+  var _reactNativeGeocoder = _require(_dependencyMap[3]);
+
+  var _reactNativeGeocoder2 = babelHelpers.interopRequireDefault(_reactNativeGeocoder);
+
+  var me = null;
+
+  var Marker = function (_Component) {
+    babelHelpers.inherits(Marker, _Component);
+
+    function Marker(props) {
+      babelHelpers.classCallCheck(this, Marker);
+
+      var _this = babelHelpers.possibleConstructorReturn(this, (Marker.__proto__ || Object.getPrototypeOf(Marker)).call(this, props));
+
+      _this.findAddres = function (coor) {
+        var PT = {
+          lat: coor.latitude,
+          lng: coor.longitude
+        };
+
+        _reactNativeGeocoder2.default.geocodePosition(PT).then(function (res) {
+          var addres = res[0].formattedAddress;
+
+          _this.setState({
+            flagh: true,
+            description: 'Hola, me encuento en: ' + addres
+          });
+        }).catch(function (err) {
+          return console.log(err);
+        });
+      };
+
+      _this.state = {
+        description: 'Estoy buscando...',
+        flagh: false
+      };
+      return _this;
+    }
+
+    babelHelpers.createClass(Marker, [{
+      key: "render",
+      value: function render() {
+        var _this2 = this;
+
+        var pathIcon = _require(_dependencyMap[4]);
+
+        switch (this.props.icon) {
+          case "movil":
+            pathIcon = _require(_dependencyMap[5]);
+            break;
+        }
+
+        me = this;
+        console.log(this.state);
+        return _react2.default.createElement(
+          _reactNativeMaps2.default.Marker,
+          {
+            title: this.props.title,
+            description: this.state.description,
+            image: pathIcon,
+            coordinate: this.props.location,
+            onPress: function onPress(event) {
+              _this2.findAddres.call(_this2, _this2.props.location);
+            }
+          },
+          _react2.default.createElement(
+            _reactNativeMaps.Callout,
+            {
+              tooltip: this.state.flagh
+            },
+            _react2.default.createElement(
+              _reactNative.View,
+              {
+                style: styles.viewCallout
+              },
+              _react2.default.createElement(
+                _reactNative.Text,
+                {
+                  style: styles.textTitle
+                },
+                this.props.title
+              ),
+              _react2.default.createElement(
+                _reactNative.Text,
+                {
+                  tooltip: this.state.flagh,
+                  style: styles.textDescription
+                },
+                this.state.description
+              )
+            )
+          )
+        );
+      }
+    }]);
+    return Marker;
+  }(_react.Component);
+
+  exports.default = Marker;
+
+  var styles = _reactNative.StyleSheet.create({
+    map: babelHelpers.extends({}, _reactNative.StyleSheet.absoluteFillObject),
+    viewCallout: {
+      backgroundColor: 'gray',
+      width: 130,
+      height: 150,
+      borderRadius: 10
+    },
+    textTitle: {
+      fontWeight: 'bold',
+      textAlign: 'center',
+      fontSize: 16,
+      color: 'black'
+    },
+    textDescription: {
+      textAlign: 'justify',
+      color: 'white',
+      paddingHorizontal: 10
+    }
+  });
+});

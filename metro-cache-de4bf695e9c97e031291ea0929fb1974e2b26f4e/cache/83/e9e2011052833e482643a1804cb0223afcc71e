@@ -1,0 +1,49 @@
+__d(function (global, _require, module, exports, _dependencyMap) {
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+
+  var _reactNative = _require(_dependencyMap[0]);
+
+  var _googleApi = _require(_dependencyMap[1]);
+
+  var _googleApi2 = babelHelpers.interopRequireDefault(_googleApi);
+
+  var RNGeocoder = _reactNative.NativeModules.RNGeocoder;
+  exports.default = {
+    apiKey: null,
+    fallbackToGoogle: function fallbackToGoogle(key) {
+      this.apiKey = key;
+    },
+    geocodePosition: function geocodePosition(position) {
+      var _this = this;
+
+      if (!position || !position.lat || !position.lng) {
+        return Promise.reject(new Error("invalid position: {lat, lng} required"));
+      }
+
+      return RNGeocoder.geocodePosition(position).catch(function (err) {
+        if (!_this.apiKey) {
+          throw err;
+        }
+
+        return _googleApi2.default.geocodePosition(_this.apiKey, position);
+      });
+    },
+    geocodeAddress: function geocodeAddress(address) {
+      var _this2 = this;
+
+      if (!address) {
+        return Promise.reject(new Error("address is null"));
+      }
+
+      return RNGeocoder.geocodeAddress(address).catch(function (err) {
+        if (!_this2.apiKey) {
+          throw err;
+        }
+
+        return _googleApi2.default.geocodeAddress(_this2.apiKey, address);
+      });
+    }
+  };
+});
